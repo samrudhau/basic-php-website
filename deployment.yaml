@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpstatic
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: phpstatic
+  template:
+    metadata:
+      labels:
+        app: phpstatic
+    spec:
+      containers:
+      - name: phpstatic
+        image: <your_dockerhub_username>/phpstatic:v1
+        ports:
+        - containerPort: 80
